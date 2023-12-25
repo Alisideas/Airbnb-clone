@@ -36,7 +36,7 @@ const UserMenu = () => {
         transition
         cursor-pointer"
         >
-          Airbnb your home
+          Hotel gasht your home
         </div>
         <div
           onClick={toggleOpen}
