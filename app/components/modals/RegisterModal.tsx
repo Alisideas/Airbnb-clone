@@ -11,8 +11,11 @@ import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
+import LoginModal from "./LoginModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const RegisterModel = () => {
+  const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,6 +46,12 @@ const RegisterModel = () => {
         setIsLoading(false);
       });
   };
+
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  },[loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4 center">
       <Heading title="Welcome to Hotel Gasht" subtitle="Create an account!" />
@@ -108,7 +117,7 @@ const RegisterModel = () => {
           
           <div className="text-neutral-500">Already have an account?</div>
           <div
-          onClick={registerModal.onClose}
+          onClick={toggle}
           className="
           text-neutral-700
           cursor-pointer
