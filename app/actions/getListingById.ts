@@ -29,7 +29,7 @@ export default async function getListingById(
       user: {
         ...listing.user,
         createdAt: listing.user.createdAt.toString(),
-        updatedAt: listing.user.updateAt.toString(),
+        updateAt: listing.user.updateAt.toString(),
         emailVerified: 
           listing.user.emailVerified?.toString() || null,
       }
