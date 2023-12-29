@@ -4,6 +4,7 @@ import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
+import { Calendar } from "react-date-range";
 
 export default async function Home() {
   const listing = await getListings();
@@ -34,14 +35,14 @@ export default async function Home() {
         gap-8
         "
         >
-          {listing.map((listing: any) => {
+          {listing.map((listing) => {
             return (
               <ListingCard
                 currentUser={currentUser}
                 key={listing.id}
                 data={listing}
               />
-            )
+            );
           })}
         </div>
       </Container>
